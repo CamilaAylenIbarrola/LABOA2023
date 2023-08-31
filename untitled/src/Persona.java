@@ -17,6 +17,12 @@ public class Persona {
         direccion="ceretti 2678";
     }
 
+    public Persona(String nombre){
+        this.nombre = nombre;
+        edad=14;
+        direccion="alvear 2074";
+    }
+
     public String getNombre() {
         return nombre;
     }
