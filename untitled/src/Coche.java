@@ -1,64 +1,36 @@
-
-
-public class Coche {
-    private String marca;
-    private String modelo;
-    private String color;
+public class Coche extends Vehiculo {
+    private String patente;
+    private boolean descapotable;
     private int velocidad;
 
-    public Coche(String marca, String modelo, String color, int velocidad) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.color = color;
-        this.velocidad = velocidad;
+    public Coche(String marca, String modelo, Color color, int cantRuedas, int año, String patente, boolean descapotable){
+        super(marca, modelo, color, cantRuedas, año);
+        this.patente=patente;
+        this.descapotable=descapotable;
     }
-
-    public String getMarca() {
-        return marca;
+    public void setVelocidad(int v){
+        velocidad=v;
     }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public String getPatente() {
+        return patente;
     }
-
-    public String getModelo() {
-        return modelo;
+    public void setPatente(String patente) {
+        this.patente = patente;
     }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public boolean getDescapotable() {
+        return descapotable;
     }
-
-    public String getColor() {
-        return color;
+    public void setDescapotable(boolean descapotable) {
+        this.descapotable = descapotable;
     }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    public int mostrarvelocidad(){
-        return velocidad;
-    }
-
-    public void acelerar(){
-        velocidad = velocidad + 1;
-    }
-
     public void frenar(){
-        if(velocidad>0){
-            velocidad = velocidad - 1;
-        }
-
+        int v=this.velocidad;
+        v--;
+        setVelocidad(v);
     }
-
-
+    public void acelerar() {
+        int v = this.velocidad;
+        v++;
+        setVelocidad(v);
+    }
 }

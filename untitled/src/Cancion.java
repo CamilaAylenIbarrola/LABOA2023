@@ -1,32 +1,30 @@
-
-
 public class Cancion {
-    private String nombre;
-    private Persona Autor;
+    private String titulo;
+    private Persona autor;
 
-    public Cancion() {
-        nombre="lola";
-        Autor=new Persona();
+    public Cancion(String titulo, Persona autor){
+        this.titulo= titulo;
+        this.autor= autor;
     }
+    public Cancion(){
+        this.titulo="";
+        this.autor=null;
 
-    public Cancion(String nombre, Persona autor) {
-        this.nombre = nombre;
-        Autor = autor;
     }
-
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
-
     public Persona getAutor() {
-        return Autor;
+        return autor;
     }
-
     public void setAutor(Persona autor) {
-        Autor = autor;
+        this.autor = autor;
+    }
+    public String mostrarInfo(){
+        String info= titulo + " " + autor;
+        return info;
     }
 }

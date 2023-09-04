@@ -1,48 +1,53 @@
-
-
 public class Cafetera {
-    private int cantidadmax;
-    private int cantidadactual;
-
-    public Cafetera() {
-        cantidadmax=1000;
-        cantidadactual=0;
+    private float cantMax;
+    private float cantActual;
+    public Cafetera(){
+        this.cantMax=1000;
+        this.cantActual=0;
     }
-
-    public Cafetera(int cantidadmax, int cantidadactual) {
-        this.cantidadmax = cantidadmax;
-        this.cantidadactual = cantidadactual;
-        if(cantidadactual>cantidadmax){
-            this.cantidadactual=cantidadmax;
+    public Cafetera(float cantMax){
+        this.cantMax= cantMax;
+        this.cantActual=cantMax;
+    }
+    public Cafetera(float cantMax, float cantActual){
+        if(cantActual> cantMax) {
+            this.cantMax = cantActual;
+        }else{
+            this.cantMax=cantMax;
+            this.cantActual=cantActual;
         }
     }
-
-    public Cafetera(int cantidadmax){
-        this.cantidadmax = cantidadmax;
-        cantidadactual=cantidadmax;
+    public float getCantMax() {
+        return cantMax;
     }
-
+    public void setCantMax(float cantMax) {
+        this.cantMax = cantMax;
+    }
+    public float getCantActual() {
+        return cantActual;
+    }
+    public void setCantActual(float cantActual) {
+        this.cantActual = cantActual;
+    }
     public void llenarCafetera(){
-        cantidadactual=cantidadmax;
+        this.cantActual= this.cantMax;
     }
-
     public void servirTaza(int capacidad){
-        if(cantidadactual>capacidad){
-            cantidadactual=cantidadactual - capacidad;
-        } else if(cantidadactual<=capacidad){
-            cantidadactual=0;
+        if(capacidad>cantActual){
+            this.cantActual=0;
+        }else{
+            this.cantActual= cantActual - capacidad;
         }
     }
-
     public void vaciarCafetera(){
-        cantidadactual=0;
+        this.cantActual= 0;
     }
-
-    public void agregarCafe(int cantidad){
-        if(cantidadactual==cantidadmax){
-        } else{
-            cantidadactual=cantidadactual + cantidad;
+    public void agregarCafe(int cantidad) {
+        float disponibilidad = this.cantMax - this.cantActual;
+        if (disponibilidad >= cantidad) {
+            this.cantActual = this.cantActual + cantidad;
+        } else {
+            this.cantActual = this.cantMax;
         }
     }
-
 }
