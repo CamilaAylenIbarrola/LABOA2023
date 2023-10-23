@@ -1,3 +1,0 @@
-public enum ListaPropuestas {
-    SALUD,EDUCACION,SEGURIDAD,ECONOMIA,AMBIENTE
-}
